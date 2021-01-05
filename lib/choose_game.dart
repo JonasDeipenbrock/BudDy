@@ -8,12 +8,59 @@ class ChooseGameMenu extends StatefulWidget {
 class _ChooseGameMenuState extends State<ChooseGameMenu> {
   @override
   Widget build(BuildContext context) {
-    return FadingListView();
+    return Scaffold(
+      appBar: AppBar(),
+      //body: FadingListView(),
+      body: AltFadingView(),
+    );
   }
 }
 
 //currently no back button, needs to be implemented at top of screen
 
+class BackAppBar extends AppBar {}
+
+class AltFadingView extends StatefulWidget {
+  @override
+  _AltFadingViewState createState() => _AltFadingViewState();
+}
+
+class _AltFadingViewState extends State<AltFadingView> {
+  int _index = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        height: 400,
+        padding: EdgeInsets.only(left: 25.0, right: 100.0),
+        child: PageView.builder(
+          itemCount: 100,
+          scrollDirection: Axis.vertical,
+          controller: PageController(viewportFraction: 0.7),
+          onPageChanged: (int index) => setState(() => _index = index),
+          itemBuilder: (_, i) {
+            return Transform.scale(
+              scale: i == _index ? 1 : 0.9,
+              child: Card(
+                elevation: 6,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Center(
+                  child: Text(
+                    "Card ${i + 1}",
+                    style: TextStyle(fontSize: 32),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+/// Custom List View that fades out and only displays the current card
 class FadingListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,7 +77,7 @@ class FadingListView extends StatelessWidget {
                 Colors.purple,
                 Colors.transparent,
                 Colors.transparent,
-                Colors.transparent
+                Colors.purple,
               ],
               stops: [0.0, 0.1, 0.9, 1.0],
             ).createShader(rect);
