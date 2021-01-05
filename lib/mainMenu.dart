@@ -14,6 +14,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MainAppBar(),
       body: Center(
         child: Column(
           children: [
@@ -76,6 +77,37 @@ class _MainMenuPageState extends State<MainMenuPage> {
         ),
       ),
       backgroundColor: Color(0xFF092463),
+    );
+  }
+}
+
+///custom AppBar
+class MainAppBar extends StatelessWidget with PreferredSizeWidget {
+  final Size preferredSize;
+
+  MainAppBar({
+    Key key,
+  })  : preferredSize = Size.fromHeight(50.0),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Container(
+        margin: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
+        child: Row(
+          children: [
+            Text('This is the top'),
+            Align(
+              alignment: Alignment.topRight,
+              child: RawMaterialButton(
+                onPressed: null,
+                child: Icon(Icons.settings),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
