@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'join_lobby.dart';
 
-class MainMenuNavigation extends StatelessWidget {
+class MainMenuPage extends StatefulWidget {
+  @override
+  _MainMenuPageState createState() => _MainMenuPageState();
+}
+
+class _MainMenuPageState extends State<MainMenuPage> {
   var mainColors = ["092463", "1d94fc", "ca3551", "ffffff", "261a08"];
 
   @override
