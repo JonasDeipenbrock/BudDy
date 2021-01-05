@@ -1,0 +1,14 @@
+Make menus look somewhat good
+Icons for App, Loading Screen, Start Screen
+Background Image
+Implement Games
+Implement Lobbys
+
+
+Game Selection:
+
+Scrollable view, without background color, with Icon that includes an icon for the game and the game name
+
+Main Menu:
+
+Make the two main buttons appear in the middle of the Screen

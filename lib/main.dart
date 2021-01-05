@@ -8,10 +8,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static const String _title = 'Testing App';
+  static const String _title = 'BudDy';
 
   @override
   Widget build(BuildContext context) {
+    //sets orientation to only allow landscape
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
